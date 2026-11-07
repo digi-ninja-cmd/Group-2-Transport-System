@@ -1,0 +1,310 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>{% block title %}Kanairo Transport Logistics | Group Two{% endblock %}</title>
+  <meta name="description" content="Kanairo Transport Logistics - Kenya's reliable cargo, shipping, and supply chain transport management system.">
+  <meta name="keywords" content="Kenya shipping, Nairobi transport, Mombasa port cargo, SGR freight, logistics Kenya, East Africa haulage, Kanairo transport">
+
+  <!-- Favicons -->
+  <link href="{% static 'images/favicon.png' %}" rel="icon">
+  <link href="{% static 'images/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files (CDN + Static fallback) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'style/main.css' %}" rel="stylesheet">
+
+  {% block extra_css %}{% endblock %}
+</head>
+
+<body class="{% block body_class %}index-page{% endblock %}">
+
+  <!-- Header Navigation -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto">
+        <h1 class="sitename">Kanairo Transport</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{% url 'index' %}" class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">Home</a></li>
+          <li><a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">About Us</a></li>
+          <li><a href="{% url 'services' %}" class="{% if request.resolver_match.url_name == 'services' %}active{% endif %}">Services</a></li>
+          <li><a href="{% url 'pricing' %}" class="{% if request.resolver_match.url_name == 'pricing' %}active{% endif %}">Pricing</a></li>
+          <li class="dropdown"><a href="#"><span>Operations</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="{% url 'servicedetails' %}">Service Details</a></li>
+              <li><a href="{% url 'quote' %}">Request a Quote</a></li>
+              <li><a href="{% url 'starterpage' %}">Transit Hubs</a></li>
+              <li class="dropdown"><a href="#"><span>Quick Links</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="{% url 'index' %}">Transport Portal</a></li>
+                  <li><a href="{% url 'about' %}">Project Team</a></li>
+                  <li><a href="{% url 'services' %}">Freight & Logistics</a></li>
+                  <li><a href="{% url 'pricing' %}">Kenyan Rates</a></li>
+                  <li><a href="{% url 'contact' %}">Nairobi Office</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="{% url 'quote' %}">Get a Quote</a>
+
+    </div>
+  </header>
+
+  <!-- Main Content Block -->
+  {% block content %}{% endblock %}
+
+  <!-- Footer -->
+  <footer id="footer" class="footer dark-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="{% url 'index' %}" class="logo d-flex align-items-center">
+            <span class="sitename">Kanairo Transport</span>
+          </a>
+          <p>Kenya's premier multimodal transport and freight management system. We connect cargo seamlessly across Nairobi, Mombasa Port, Kisumu, Nakuru, Eldoret, and wider East African transit corridors.</p>
+          <div class="social-links d-flex mt-4">
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Quick Navigation</h4>
+          <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'services' %}">Our Services</a></li>
+            <li><a href="{% url 'pricing' %}">Pricing Plans</a></li>
+            <li><a href="{% url 'quote' %}">Request Quote</a></li>
+            <li><a href="{% url 'contact' %}">Contact Office</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Logistics Services</h4>
+          <ul>
+            <li><a href="{% url 'servicedetails' %}">Port of Mombasa Clearance</a></li>
+            <li><a href="{% url 'servicedetails' %}">SGR & Road Freight</a></li>
+            <li><a href="{% url 'servicedetails' %}">JKIA Air Cargo Transit</a></li>
+            <li><a href="{% url 'servicedetails' %}">Nairobi Warehousing</a></li>
+            <li><a href="{% url 'servicedetails' %}">East Africa Haulage</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Nairobi Headquarters</h4>
+          <p>Inland Container Depot (ICD) Road</p>
+          <p>Off Mombasa Road, Embakasi</p>
+          <p>P.O. Box 40120 - 00100, Nairobi, Kenya</p>
+          <p class="mt-4"><strong>Phone:</strong> <span>+254 712 345 678 / +254 733 987 654</span></p>
+          <p><strong>Email:</strong> <span>info@kanairotransport.co.ke</span></p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Kanairo Transport Logistics</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        Project Designed &amp; Developed by <strong>Group Two</strong> — <strong>Leader:</strong> Marylyne Mwazighe | 
+        <strong>Team Members:</strong> Cynthia Mukami Murithi, Asman Makero Musa, Druzler Chepngeno, Caldrin Daisy Omondi
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/js/purecounter_vanilla.js"></script>
+
+  <!-- Template Logic Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      "use strict";
+
+      /**
+       * Preloader
+       */
+      const preloader = document.querySelector('#preloader');
+      if (preloader) {
+        window.addEventListener('load', () => {
+          preloader.remove();
+        });
+        setTimeout(() => {
+          if (preloader) preloader.remove();
+        }, 1500);
+      }
+
+      /**
+       * Scroll top button
+       */
+      let scrollTop = document.querySelector('.scroll-top');
+      function toggleScrollTop() {
+        if (scrollTop) {
+          window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+        }
+      }
+      if (scrollTop) {
+        scrollTop.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+      window.addEventListener('load', toggleScrollTop);
+      document.addEventListener('scroll', toggleScrollTop);
+
+      /**
+       * Mobile nav toggle
+       */
+      const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+      function mobileNavToggle() {
+        document.querySelector('body').classList.toggle('mobile-nav-active');
+        if (mobileNavToggleBtn) {
+          mobileNavToggleBtn.classList.toggle('bi-list');
+          mobileNavToggleBtn.classList.toggle('bi-x');
+        }
+      }
+      if (mobileNavToggleBtn) {
+        mobileNavToggleBtn.addEventListener('click', mobileNavToggle);
+      }
+
+      /**
+       * Hide mobile nav on same-page/hash links
+       */
+      document.querySelectorAll('#navmenu a').forEach(navmenu => {
+        navmenu.addEventListener('click', () => {
+          if (document.querySelector('.mobile-nav-active')) {
+            mobileNavToggle();
+          }
+        });
+      });
+
+      /**
+       * Toggle mobile nav dropdowns
+       */
+      document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
+        navmenu.addEventListener('click', function(e) {
+          e.preventDefault();
+          this.parentNode.classList.toggle('active');
+          this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+          e.stopImmediatePropagation();
+        });
+      });
+
+      /**
+       * Animation on scroll function and init
+       */
+      function aosInit() {
+        if (typeof AOS !== 'undefined') {
+          AOS.init({
+            duration: 600,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+          });
+        }
+      }
+      window.addEventListener('load', aosInit);
+
+      /**
+       * Initiate Pure Counter
+       */
+      if (typeof PureCounter !== 'undefined') {
+        new PureCounter();
+      }
+
+      /**
+       * Initiate GLightbox
+       */
+      if (typeof GLightbox !== 'undefined') {
+        GLightbox({
+          selector: '.glightbox'
+        });
+      }
+
+      /**
+       * Init swiper sliders
+       */
+      function initSwiper() {
+        document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
+          let config = {
+            loop: true,
+            speed: 600,
+            autoplay: {
+              delay: 5000
+            },
+            slidesPerView: "auto",
+            pagination: {
+              el: ".swiper-pagination",
+              type: "bullets",
+              clickable: true
+            }
+          };
+          let configElement = swiperElement.querySelector(".swiper-config");
+          if (configElement) {
+            try {
+              config = JSON.parse(configElement.innerHTML.trim());
+            } catch(e) {}
+          }
+          if (typeof Swiper !== 'undefined') {
+            new Swiper(swiperElement, config);
+          }
+        });
+      }
+      window.addEventListener("load", initSwiper);
+
+      /**
+       * Frequently Asked Questions Toggle
+       */
+      document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqItem) => {
+        faqItem.addEventListener('click', () => {
+          faqItem.parentNode.classList.toggle('faq-active');
+        });
+      });
+
+    });
+  </script>
+
+  {% block extra_js %}{% endblock %}
+</body>
+
+</html>

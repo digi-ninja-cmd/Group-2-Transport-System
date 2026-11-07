@@ -1,132 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% load static %}
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Kanairo Shipping</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+{% block title %}Home | Kanairo Transport Logistics{% endblock %}
+{% block body_class %}index-page{% endblock %}
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-  {% load static %}
-
-  <!-- =======================================================
-  * Template Name: Logis
-  * Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
-  * Updated: Apr 08 2026 with Bootstrap v5.3.8
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body class="index-page">
-
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">Kanairo Shipping</h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html" class="active">Home<br></a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      <a class="btn-getstarted" href="get-a-quote.html">Get a Quote</a>
-
-    </div>
-  </header>
-
+{% block content %}
   <main class="main">
 
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-      <img src="{% static 'image/img/world-dotted-map.png' %}" alt="" class="hero-bg" data-aos="fade-in"> {% static 'image/img/testimonials/testimonials-1.jpg' %} 
+      <img src="{% static 'images/world-dotted-map.png' %}" alt="" class="hero-bg" data-aos="fade-in">
 
       <div class="container">
         <div class="row gy-4 d-flex justify-content-between">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h2 data-aos="fade-up">Your Lightning Fast Delivery Partner</h2>
-            <p data-aos="fade-up" data-aos-delay="100">We provide fast and reliable shipping services to meet all your logistics needs.</p>
+            <h2 data-aos="fade-up">Kenya's Premier Cargo &amp; Transport Network</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Connecting the Port of Mombasa, Nairobi ICD, Nakuru, Eldoret, Kisumu, and East African borders with fast, reliable freight solutions.</p>
 
-            <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
-              <input type="text" class="form-control" placeholder="Your ZIP code or City. e.g. New York">
-              <button type="submit" class="btn btn-primary">Search</button>
+            <form action="{% url 'quote' %}" method="get" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+              <input type="text" name="destination" class="form-control" placeholder="Enter Destination or Waybill e.g. Nairobi, Mombasa, Kisumu">
+              <button type="submit" class="btn btn-primary">Track / Quote</button>
             </form>
 
             <div class="row gy-4" data-aos="fade-up" data-aos-delay="300">
 
               <div class="col-lg-3 col-6">
                 <div class="stats-item text-center w-100 h-100">
-                  <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="0" class="purecounter">232</span>
-                  <p>Clients</p>
+                  <span data-purecounter-start="0" data-purecounter-end="47" data-purecounter-duration="0" class="purecounter">47</span>
+                  <p>Counties</p>
                 </div>
               </div><!-- End Stats Item -->
 
               <div class="col-lg-3 col-6">
                 <div class="stats-item text-center w-100 h-100">
-                  <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="0" class="purecounter">521</span>
-                  <p>Projects</p>
+                  <span data-purecounter-start="0" data-purecounter-end="1850" data-purecounter-duration="0" class="purecounter">1850</span>
+                  <p>Consignments</p>
                 </div>
               </div><!-- End Stats Item -->
 
               <div class="col-lg-3 col-6">
                 <div class="stats-item text-center w-100 h-100">
-                  <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="0" class="purecounter">1453</span>
-                  <p>Support</p>
+                  <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="0" class="purecounter">24</span>
+                  <p>Hours Support</p>
                 </div>
               </div><!-- End Stats Item -->
 
               <div class="col-lg-3 col-6">
                 <div class="stats-item text-center w-100 h-100">
-                  <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="0" class="purecounter">32</span>
-                  <p>Workers</p>
+                  <span data-purecounter-start="0" data-purecounter-end="99" data-purecounter-duration="0" class="purecounter">99%</span>
+                  <p>Reliability</p>
                 </div>
               </div><!-- End Stats Item -->
 
@@ -135,7 +58,7 @@
           </div>
 
           <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-            <img src= {% static 'image/img/hero-img.svg' %} class="img-fluid mb-3 mb-lg-0" alt=""> 
+            <img src="{% static 'images/hero-img.svg' %}" class="img-fluid mb-3 mb-lg-0" alt="Kenya Transport Systems">
           </div>
 
         </div>
@@ -151,30 +74,30 @@
         <div class="row gy-4">
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon flex-shrink-0"><i class="fa-solid fa-cart-flatbed"></i></div>
+            <div class="icon flex-shrink-0"><i class="fa-solid fa-ship"></i></div>
             <div>
-              <h4 class="title">Logistics</h4>
-              <p class="description">We provide comprehensive logistics solutions to meet all your shipping needs.</p>
-              <a href="#" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+              <h4 class="title">Port of Mombasa Clearance</h4>
+              <p class="description">Fast offloading, KPA container documentation, and customs clearance at Kilindini Harbour.</p>
+              <a href="{% url 'services' %}" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
           <!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon flex-shrink-0"><i class="fa-solid fa-truck"></i></div>
+            <div class="icon flex-shrink-0"><i class="fa-solid fa-train"></i></div>
             <div>
-              <h4 class="title">Air Freight</h4>
-              <p class="description">We offer fast and reliable air freight services for your cargo needs.</p>
-              <a href="#" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+              <h4 class="title">SGR &amp; Northern Haulage</h4>
+              <p class="description">Synchronized Standard Gauge Railway and highway fleet transit from Coast to Western Kenya.</p>
+              <a href="{% url 'services' %}" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon flex-shrink-0"><i class="fa-solid fa-truck-ramp-box"></i></div>
+            <div class="icon flex-shrink-0"><i class="fa-solid fa-plane-departure"></i></div>
             <div>
-              <h4 class="title">Ground Shipping</h4>
-              <p class="description">We provide efficient ground shipping solutions for your cargo needs.</p>
-              <a href="#" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+              <h4 class="title">JKIA Air Cargo Express</h4>
+              <p class="description">Rapid export facilitation and cold chain logistics for fresh agricultural produce and parcels.</p>
+              <a href="{% url 'services' %}" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -192,37 +115,35 @@
         <div class="row gy-4">
 
           <div class="col-lg-6 position-relative align-self-start order-lg-last order-first" data-aos="fade-up" data-aos-delay="200">
-            <img src="{% static 'image/img/about.jpg' %}" class="img-fluid" alt="">
+            <img src="{% static 'images/about.jpg' %}" class="img-fluid rounded-3 shadow" alt="About Kanairo Transport">
             <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
           </div>
 
-          <div class="col-lg-6 content order-last  order-lg-first" data-aos="fade-up" data-aos-delay="100">
-            <h3>About Us</h3>
+          <div class="col-lg-6 content order-last order-lg-first" data-aos="fade-up" data-aos-delay="100">
+            <h3>Reliable Freight Solutions Across Kenya</h3>
             <p>
-              At Kanairo Shipping, we know every shipment matters. Behind every package is a promise — to a customer, a partner, or a business counting on you.
-
-That's why we treat your cargo like our own. Careful handling, clear communication, and on-time delivery are at the heart of everything we do. Whether it's a small parcel or a full container, we go the extra mile to get it there right.
+              Kanairo Transport Logistics bridges the gap between suppliers, manufacturers, and end-consumers. We optimize Kenyan supply chains with modern scheduling, fleet management, and dependable client support.
             </p>
             <ul>
               <li>
                 <i class="bi bi-diagram-3"></i>
                 <div>
-                  <h5>Our Mission</h5>
-                  <p>Our mission is to provide exceptional shipping solutions that exceed our customers' expectations.</p>
+                  <h5>Multimodal Transport Architecture</h5>
+                  <p>Blending railway freight from Mombasa to Nairobi Inland Container Depot (ICD) with robust road fleets spanning the Great Rift Valley.</p>
                 </div>
               </li>
               <li>
-                <i class="bi bi-fullscreen-exit"></i>
+                <i class="bi bi-geo-alt"></i>
                 <div>
-                  <h5>Our Vision</h5>
-                  <p>Our vision is to be the leading logistics company in the industry, known for our reliability and customer satisfaction.</p>
+                  <h5>Strategic Regional Hubs</h5>
+                  <p>Operating distribution centers in Nairobi (Embakasi &amp; Industrial Area), Mombasa, Nakuru, Eldoret, Kisumu, and Naivasha.</p>
                 </div>
               </li>
               <li>
-                <i class="bi bi-broadcast"></i>
+                <i class="bi bi-check-circle"></i>
                 <div>
-                  <h5>Our Values</h5>
-                  <p>Integrity, Excellence, Customer Focus, Innovation, and Sustainability.</p>
+                  <h5>KRA Customs &amp; Documentation Support</h5>
+                  <p>Streamlined tax declarations, port gate passes, and bonded transit paperwork handled with precision.</p>
                 </div>
               </li>
             </ul>
@@ -239,9 +160,9 @@ That's why we treat your cargo like our own. Careful handling, clear communicati
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <span>Our Services<br></span>
-        <h2>Our ServiceS</h2>
-        <p>From a single parcel to a full container load, we provide end-to-end transport and shipping solutions tailored to your needs. Whether you're shipping locally or across borders, our team handles the details — so you can focus on your business. </p>
+        <span>Our Core Capabilities<br></span>
+        <h2>What We Deliver</h2>
+        <p>Comprehensive freight, shipping, and distribution services tailored for Kenyan enterprises.</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -251,60 +172,60 @@ That's why we treat your cargo like our own. Careful handling, clear communicati
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="card">
               <div class="card-img">
-                <img src= {% static 'image/img/service-1.jpg' %} alt="" class="img-fluid">
+                <img src="{% static 'images/service-1.jpg' %}" alt="Nairobi Storage" class="img-fluid">
               </div>
-              <h3>Storage</h3>
-              <p>We offer secure and reliable storage solutions for all your goods, ensuring they are protected and easily accessible when needed.</p>
+              <h3>Storage &amp; Warehousing</h3>
+              <p>Secure bonded and non-bonded warehouse facilities located along Mombasa Road and Industrial Area, Nairobi.</p>
             </div>
           </div><!-- End Card Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="card">
               <div class="card-img">
-                <img src= {% static 'image/img/service-2.jpg' %} alt="" class="img-fluid">
+                <img src="{% static 'images/service-2.jpg' %}" alt="SGR and Haulage" class="img-fluid">
               </div>
-              <h3><a href="#" class="stretched-link">Logistics</a></h3>
-              <p>We provide comprehensive logistics services to ensure your goods are transported efficiently and on time, with real-time tracking and updates throughout the journey.</p>
+              <h3>Northern Corridor Road Freight</h3>
+              <p>Fleet of flatbeds, box trucks, and articulated lorries traversing Nairobi, Nakuru, Eldoret, and Malaba border.</p>
             </div>
           </div><!-- End Card Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="card">
               <div class="card-img">
-                <img src= {% static 'image/img/service-3.jpg' %} alt="" class="img-fluid">
+                <img src="{% static 'images/service-3.jpg' %}" alt="Port Cargo" class="img-fluid">
               </div>
-              <h3><a href="#" class="stretched-link">Cargo</a></h3>
-              <p>We specialize in handling all types of cargo, from small packages to large shipments, ensuring safe and timely delivery every time.</p>
+              <h3>Port of Mombasa Operations</h3>
+              <p>Direct liaison with Kenya Ports Authority for container unstuffing, clearance, and prompt SGR loading.</p>
             </div>
           </div><!-- End Card Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <div class="card">
               <div class="card-img">
-                <img src= {% static 'image/img/service-4.jpg' %} alt="" class="img-fluid">
+                <img src="{% static 'images/service-4.jpg' %}" alt="Air Cargo" class="img-fluid">
               </div>
-              <h3><a href="#" class="stretched-link">Trucking</a></h3>
-              <p>We offer reliable trucking services for all your transportation needs, with a focus on safety, efficiency, and customer satisfaction.</p>
+              <h3>JKIA Air Cargo Express</h3>
+              <p>Rapid booking and airfreight handling for fresh cut flowers, avocados, pharmaceuticals, and urgent consignments.</p>
             </div>
           </div><!-- End Card Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div class="card">
               <div class="card-img">
-                <img src= {% static 'image/img/service-5.jpg' %} alt="" class="img-fluid">
+                <img src="{% static 'images/service-5.jpg' %}" alt="Cold Chain Packaging" class="img-fluid">
               </div>
-              <h3>Packaging</h3>
-              <p>Illo consequuntur quisquam delectus praesentium modi dignissimos facere vel cum onsequuntur maiores beatae consequatur magni voluptates</p>
+              <h3>Cold Chain &amp; Packaging</h3>
+              <p>Temperature-controlled transport and tamper-evident packaging for agricultural and dairy produce.</p>
             </div>
           </div><!-- End Card Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="card">
               <div class="card-img">
-                <img src= {% static 'image/img/service-6.jpg' %} alt="" class="img-fluid">
+                <img src="{% static 'images/service-6.jpg' %}" alt="Metropolitan Delivery" class="img-fluid">
               </div>
-              <h3><a href="#" class="stretched-link">Warehousing</a></h3>
-              <p>Quas assumenda non occaecati molestiae. In aut earum sed natus eatae in vero. Ab modi quisquam aut nostrum unde et qui est non quo nulla</p>
+              <h3>Nairobi Metropolitan Courier</h3>
+              <p>Same-day and next-day distribution across Nairobi County, Kiambu, Machakos, and Kajiado business zones.</p>
             </div>
           </div><!-- End Card Item -->
 
@@ -317,15 +238,15 @@ That's why we treat your cargo like our own. Careful handling, clear communicati
     <!-- Call To Action Section -->
     <section id="call-to-action" class="call-to-action section dark-background">
 
-      <img src={% static 'image/img/cta-bg.jpg' %} alt="">
+      <img src="{% static 'images/cta-bg.jpg' %}" alt="">
 
       <div class="container">
         <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
           <div class="col-xl-10">
             <div class="text-center">
-              <h3>Call To Action</h3>
-              <p>Ready to get started? Contact us today for a free quote and let us handle your shipping needs.</p>
-              <a class="cta-btn" href="#">Call To Action</a>
+              <h3>Move Your Consignment With Confidence</h3>
+              <p>Need urgent freight dispatch from Mombasa Port or looking to ship parcels across Kenya? Get an accurate rate calculation from our operations desk.</p>
+              <a class="cta-btn" href="{% url 'quote' %}">Get an Instant Quote</a>
             </div>
           </div>
         </div>
@@ -333,97 +254,14 @@ That's why we treat your cargo like our own. Careful handling, clear communicati
 
     </section><!-- /Call To Action Section -->
 
-    <!-- Features Section -->
-    <section id="features" class="features section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span>Features</span>
-        <h2>Features</h2>
-        <p>We keep logistics simple and dependable. Track your shipment in real time, count on on-time delivery, and trust that every item is handled with care. Our modern fleet, global network, and 24/7 support mean your cargo is always in safe hands — any size, any distance, any timeline.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4 align-items-center features-item">
-          <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
-            <img src="{% static 'image/img/features-1.jpg' %}" class="img-fluid" alt="">
-          </div>
-          <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
-            <h3>Real-Time Tracking</h3>
-            <p class="fst-italic">
-                Stay informed with our real-time tracking system, allowing you to monitor your shipment's progress every step of the way.
-            </p>
-            <ul>
-              <li><i class="bi bi-check"></i><span> Know exactly where your shipment is — anytime, anywhere.</span></li>
-              <li><i class="bi bi-check"></i> <span>Live GPS updates from pickup to final delivery.</span></li>
-              <li><i class="bi bi-check"></i> <span>Instant notifications for any updates or delays.</span></li>
-            </ul>
-          </div>
-        </div><!-- Features Item -->
-
-        <div class="row gy-4 align-items-center features-item">
-          <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-            <img src="{% static 'image/img/features-2.jpg' %}" class="img-fluid" alt="">
-          </div>
-          <div class="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay="200">
-            <h3>On-Time Delivery</h3>
-            <p class="fst-italic">
-                We pride ourselves on our commitment to punctuality. Our efficient logistics network ensures your shipments arrive on schedule, every time.
-            </p>
-            <p>
-                Our team works tirelessly to optimize routes and streamline processes, minimizing delays and maximizing reliability. With Kanairo Shipping, you can trust that your cargo will reach its destination when expected, keeping your business running smoothly.
-            </p>
-          </div>
-        </div><!-- Features Item -->
-
-        <div class="row gy-4 align-items-center features-item">
-          <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out">
-            <img src="{% static 'image/img/features-3.jpg' %}" class="img-fluid" alt="">
-          </div>
-          <div class="col-md-7" data-aos="fade-up">
-            <h3>24/7 Customer Support</h3>
-            <p class="fst-italic">
-                Our dedicated customer support team is available around the clock to assist you with any questions or concerns.
-            </p>
-            <ul>
-              <li><i class="bi bi-check"></i> <span>Our support team is available around the clock, ready to assist whenever you need us. Whether it's a question about your shipment, an update on delivery, or help with a last-minute change, a real person is always on hand.</span></li>
-              <li><i class="bi bi-check"></i><span> </span>No hold music, no waiting until morning — just dependable support, day or night. We monitor every shipment and respond quickly to keep your cargo moving.</li>
-              <li><i class="bi bi-check"></i> <span>From urgent delivery questions to routine updates, we're always just a call, email, or click away. Your peace of mind is our priority.</span>.</li>
-            </ul>
-          </div>
-        </div><!-- Features Item -->
-
-        <div class="row gy-4 align-items-center features-item">
-          <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out">
-            <img src="{% static 'image/img/features-4.jpg' %}" class="img-fluid" alt="">
-          </div>
-          <div class="col-md-7 order-2 order-md-1" data-aos="fade-up">
-            <h3>Quas et necessitatibus eaque impedit ipsum animi consequatur incidunt in</h3>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
-            </p>
-          </div>
-        </div><!-- Features Item -->
-
-      </div>
-
-    </section><!-- /Features Section -->
-
     <!-- Pricing Section -->
     <section id="pricing" class="pricing section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <span>Pricing</span>
-        <h2>Pricing</h2>
-        <p>From urgent delivery questions to routine updates, we're always just a call, email, or click away. Your peace of mind is our priority.</p>
+        <span>Kenyan Logistics Rates</span>
+        <h2>Transparent Pricing Plans</h2>
+        <p>Competitive, transparent freight tariffs in Kenyan Shillings (KSh) suited for small enterprises to industrial shippers.</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -432,46 +270,46 @@ That's why we treat your cargo like our own. Careful handling, clear communicati
 
           <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
             <div class="pricing-item">
-              <h3>Free Plan</h3>
-              <h4><sup>/=</sup>0<span> / month</span></h4>
+              <h3>County Parcel Plan</h3>
+              <h4><sup>KSh</sup> 2,500<span> / month</span></h4>
               <ul>
-                <li><i class="bi bi-check"></i> <span>Up to 30 shipments/month</span></li>
-                <li><i class="bi bi-check"></i> <span>Standard tracking </span></li>
-                <li><i class="bi bi-check"></i> <span>Email support</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Basic rate comparison & label generation</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>1,000 API calls/month</span></li>
+                <li><i class="bi bi-check"></i> <span>Up to 30 parcel deliveries/month</span></li>
+                <li><i class="bi bi-check"></i> <span>Nairobi Metropolitan coverage</span></li>
+                <li><i class="bi bi-check"></i> <span>SMS milestone notifications</span></li>
+                <li class="na"><i class="bi bi-x"></i> <span>SGR bulk freight allocation</span></li>
+                <li class="na"><i class="bi bi-x"></i> <span>Port of Mombasa customs bonding</span></li>
               </ul>
-              <a href="#" class="buy-btn">Buy Now</a>
+              <a href="{% url 'quote' %}" class="buy-btn">Select Plan</a>
             </div>
           </div><!-- End Pricing Item -->
 
           <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
             <div class="pricing-item featured">
-              <h3>Business Plan</h3>
-              <h4><sup>/=</sup>29<span> / month</span></h4>
+              <h3>Commercial Freight</h3>
+              <h4><sup>KSh</sup> 14,500<span> / month</span></h4>
               <ul>
-                <li><i class="bi bi-check"></i> <span>Up to 10,000 shipments/month</span></li>
-                <li><i class="bi bi-check"></i> <span>Bulk label printing & customs paperwork</span></li>
-                <li><i class="bi bi-check"></i> <span>Branded tracking & returns portal</span></li>
-                <li><i class="bi bi-check"></i> <span>50,000 API calls/month</span></li>
-                <li><i class="bi bi-check"></i> <span>Up to 5 users</span></li>
+                <li><i class="bi bi-check"></i> <span>Up to 10 tons inter-county cargo</span></li>
+                <li><i class="bi bi-check"></i> <span>Mombasa - Nairobi SGR priority allocation</span></li>
+                <li><i class="bi bi-check"></i> <span>Live GPS vehicle telematics</span></li>
+                <li><i class="bi bi-check"></i> <span>Warehouse handling at ICD Embakasi</span></li>
+                <li><i class="bi bi-check"></i> <span>Dedicated fleet manager</span></li>
               </ul>
-              <a href="#" class="buy-btn">Buy Now</a>
+              <a href="{% url 'quote' %}" class="buy-btn">Select Plan</a>
             </div>
           </div><!-- End Pricing Item -->
 
           <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
             <div class="pricing-item">
-              <h3>Developer Plan</h3>
-              <h4><sup>/=</sup>49<span> / month</span></h4>
+              <h3>Corporate &amp; Cross-Border</h3>
+              <h4><sup>KSh</sup> 48,000<span> / month</span></h4>
               <ul>
-                <li><i class="bi bi-check"></i> <span>Pay-as-you-go or 50,000+ shipments</span></li>
-                <li><i class="bi bi-check"></i> <span></span>Sandbox environment</li>
-                <li><i class="bi bi-check"></i> <span>Sandbox environment</span></li>
-                <li><i class="bi bi-check"></i> <span>Unlimited API keys</span></li>
-                <li><i class="bi bi-check"></i> <span>99.9% uptime SLA</span></li>
+                <li><i class="bi bi-check"></i> <span>Full Container Loads (20ft / 40ft FCL)</span></li>
+                <li><i class="bi bi-check"></i> <span>Uganda, Rwanda &amp; Tanzania transit</span></li>
+                <li><i class="bi bi-check"></i> <span>Complete KRA customs clearing</span></li>
+                <li><i class="bi bi-check"></i> <span>Bonded warehousing access</span></li>
+                <li><i class="bi bi-check"></i> <span>24/7 dedicated dispatch helpline</span></li>
               </ul>
-              <a href="#" class="buy-btn">Buy Now</a>
+              <a href="{% url 'quote' %}" class="buy-btn">Select Plan</a>
             </div>
           </div><!-- End Pricing Item -->
 
@@ -484,7 +322,7 @@ That's why we treat your cargo like our own. Careful handling, clear communicati
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section dark-background">
 
-      <img src="{% static 'image/img/testimonials-bg.jpg' %}" class="testimonials-bg" alt="">
+      <img src="{% static 'images/testimonials-bg.jpg' %}" class="testimonials-bg" alt="">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -493,96 +331,50 @@ That's why we treat your cargo like our own. Careful handling, clear communicati
             {
               "loop": true,
               "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
+              "autoplay": { "delay": 5000 },
               "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              }
+              "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true }
             }
           </script>
           <div class="swiper-wrapper">
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="{% static 'image/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>When I started this company, I had one goal: to make shipping simple, reliable, and stress-free. Today, that mission drives everything we do — every shipment, every delivery, every customer. Thank you for trusting us with your cargo.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
+                <img src="{% static 'images\team\pexels-abdimalik-mohamed-272681007-14076211.jpg' %}" class="testimonial-img" alt="Mwangi wa Kuria">
+                <h3>Mwangi wa Kuria</h3>
+                <h4>Director, Naivasha Greenhouses Ltd</h4>
+                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p><i class="bi bi-quote quote-icon-left"></i><span>Kanairo Transport transformed our fresh horticultural produce dispatch. Moving chilled flowers from Naivasha directly to JKIA Cargo terminal is now clockwork!</span><i class="bi bi-quote quote-icon-right"></i></p>
               </div>
             </div><!-- End testimonial item -->
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="{% static 'image/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>"Good design isn't just about looks — it's about making things easier. I designed this platform to feel simple, clear, and trustworthy, so you can focus on what matters: getting your cargo where it needs to go.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
+                <img src="{% static 'images\istockphoto-2192261127-1024x1024.jpg' %}" class="testimonial-img" alt="Fatuma Abdallah">
+                <h3>Fatuma Abdallah</h3>
+                <h4>Kilindini Maritime Agency, Mombasa</h4>
+                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p><i class="bi bi-quote quote-icon-left"></i><span>Fast clearance at the Port of Mombasa and immediate transfer onto SGR freight trains to Nairobi ICD. Their tracking and customer care are the best in Kenya.</span><i class="bi bi-quote quote-icon-right"></i></p>
               </div>
             </div><!-- End testimonial item -->
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="{% static 'image/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>E-commerce Business Owner</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Our online store depends on fast, reliable delivery — and this team delivers every time. Shipments arrive on schedule, tracking is accurate, and support actually answers when you call. Couldn't ask for more."</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
+                <img src="{% static 'images\team\pexels-kingcyrusstudios-29387556.jpg' %}" class="testimonial-img" alt="Brian Kiprop">
+                <h3>Brian Kiprop</h3>
+                <h4>Operations Lead, Eldoret Grain Millers</h4>
+                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p><i class="bi bi-quote quote-icon-left"></i><span>Hauling commercial grain from the North Rift into Nairobi and Thika used to be plagued with delays. Kanairo Transport delivers on their promises with zero cargo loss.</span><i class="bi bi-quote quote-icon-right"></i></p>
               </div>
             </div><!-- End testimonial item -->
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="{% static 'image/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4> Import/Export Manager</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>We ship internationally every week, and customs used to be a nightmare. Now it's handled smoothly every time. Professional, reliable, and always one step ahead."</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="{% static 'image/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Individual Customer</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Their team is responsive, organized, and dependable. Deliveries are consistent, and communication is excellent. A logistics partner we genuinely trust."</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
+                <img src="{% static 'images\istockphoto-1663171688-1024x1024.jpg' %}" class="testimonial-img" alt="Grace Atieno">
+                <h3>Grace Atieno</h3>
+                <h4>General Manager, Lake Basin Logistics Kisumu</h4>
+                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p><i class="bi bi-quote quote-icon-left"></i><span>Cross-country transport between Kisumu Port and the coastal corridor has never been smoother. Great leadership from the Group Two project team!</span><i class="bi bi-quote quote-icon-right"></i></p>
               </div>
             </div><!-- End testimonial item -->
 
@@ -594,15 +386,15 @@ That's why we treat your cargo like our own. Careful handling, clear communicati
 
     </section><!-- /Testimonials Section -->
 
+
     <!-- Faq Section -->
     <section id="faq" class="faq section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <span>Frequently Asked Questions</span>
-        <h2>What areas do you cover for pickup and delivery?</h2>
-        <p>We serve local, regional, and international destinations. Share your pickup and delivery locations and we'll confirm coverage and the best route for your shipment. </p>
-        
+        <span>Transit Questions</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Common questions about parcel delivery, container transport, and routes across Kenya.</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -615,45 +407,36 @@ That's why we treat your cargo like our own. Careful handling, clear communicati
 
               <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Do you handle both small parcels and large freight?</h3>
+                <h3>Do you ship to all 47 counties in Kenya?</h3>
                 <div class="faq-content">
-                  <p>Yes. From single parcels to pallets and full container loads, we handle shipments of all sizes with the same care and attention.</p>
+                  <p>Yes. We have primary transit corridors covering Nairobi, Mombasa, Nakuru, Eldoret, Kisumu, Nyeri, Meru, Machakos, and onward feeder routes serving all 47 counties.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>What is your policy on damaged or lost shipments?</h3>
+                <h3>How quickly are containers cleared from Mombasa Port to Nairobi ICD?</h3>
                 <div class="faq-content">
-                  <p>Damaged or lost shipments are rare, but we have a comprehensive insurance policy to cover such incidents. We work closely with our clients to resolve any issues promptly and ensure satisfaction.</p>
+                  <p>Upon vessel discharge and customs verification, containers typically depart Kilindini Harbour via SGR rail wagons within 24 to 36 hours, arriving directly at ICD Embakasi.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>How do you ensure the safety of my shipment during transit?</h3>
+                <h3>Are consignments insured during transit on Kenyan highways?</h3>
                 <div class="faq-content">
-                  <p>We use advanced tracking technology and secure handling practices to ensure your shipment is safe throughout the journey. Our team is trained to handle packages with the utmost care and attention to detail.</p>
+                  <p>All shipments transported under our bills of lading include comprehensive transit insurance covering goods-in-transit against road accidents, theft, and environmental damage.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>What areas do you cover for pickup and delivery?</h3>
+                <h3>How do I make payments for shipping services?</h3>
                 <div class="faq-content">
-                  <p>We serve local, regional, and international destinations. Share your pickup and delivery locations and we'll confirm coverage and the best route for your shipment.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>How can I track my shipment?</h3>
-                <div class="faq-content">
-                  <p>You can track your shipment in real-time using our online tracking system. Simply enter your tracking number on our website to get the latest updates on your package's location and estimated delivery time.</p>
+                  <p>We accept M-Pesa Buy Goods / Paybill, direct bank transfers (RTGS / EFT), and corporate invoicing for contracted business shippers.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
@@ -669,88 +452,4 @@ That's why we treat your cargo like our own. Careful handling, clear communicati
     </section><!-- /Faq Section -->
 
   </main>
-
-  <footer id="footer" class="footer dark-background">
-
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Kanairo Shipping</span>
-          </a>
-          <p>Moving your business forward, one shipment at a time.</p>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-          <h4>Contact Us</h4>
-          <p>A108 Adam Street</p>
-          <p>New York, NY 535022</p>
-          <p>United States</p>
-          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-          <p><strong>Email:</strong> <span>info@example.com</span></p>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Kanairo Shipping</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> | <a href="https://bootstrapmade.com/tools/">DevTools</a>
-      </div>
-    </div>
-
-  </footer>
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-</body>
-
-</html>
+{% endblock %}
